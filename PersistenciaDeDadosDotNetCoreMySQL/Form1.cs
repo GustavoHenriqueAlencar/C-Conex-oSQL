@@ -51,10 +51,10 @@ namespace PersistenciaDeDadosDotNetCoreMySQL
 
 		private void btnSalvar_Click(object sender, EventArgs e)
 		{
+				
+			string data_source = "server=localhost;port=3310;uid=root;pwd=;database=db_agenda;";
 
-			string data_source = "server=localhost;port=3306;uid=root;pwd=;database=db_agenda;}";
-
-			string sql = "INSERT INTO contato (nome, telefone, email) VALUES (@nome, @telefone, @email)";
+			string sql = "INSERT INTO contato (nome, telefone, email) VALUES (@nome, -@telefone, @email)";
 
 			try
 			{
@@ -86,7 +86,7 @@ namespace PersistenciaDeDadosDotNetCoreMySQL
 					}
 				}
 			}
-			catch (MySqlException ex)
+			catch (MySqlException ex) 
 			{
 				MessageBox.Show("Erro no banco de dados: " + ex.Message, "Erro",
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
